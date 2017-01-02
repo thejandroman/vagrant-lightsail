@@ -1,5 +1,4 @@
-require 'vagrant'
-vagrant 'iniparse'
+require 'iniparse'
 
 module VagrantPlugins
   module Lightsail
