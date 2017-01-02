@@ -1,8 +1,8 @@
 require 'spec_helper'
 
-describe Vagrant::Lightsail do
+describe VagrantPlugins::Lightsail do
   it 'has a version number' do
-    expect(Vagrant::Lightsail::VERSION).not_to be nil
+    expect(VagrantPlugins::Lightsail::VERSION).not_to be nil
   end
 
   it 'does something useful' do
