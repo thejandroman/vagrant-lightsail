@@ -1,4 +1,5 @@
 require 'vagrant'
+require 'vagrant-lightsail/action'
 
 module VagrantPlugins
   module Lightsail
