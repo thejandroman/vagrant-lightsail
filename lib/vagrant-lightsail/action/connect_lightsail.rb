@@ -4,9 +4,9 @@ require 'log4r'
 module VagrantPlugins
   module LightSail
     module Action
-      # This action connects to AWS, verifies credentials work, and
-      # puts the AWS connection object into the `:aws_compute` key
-      # in the environment.
+      # This action connects to Lightsail, verifies credentials work,
+      # and puts the Lightsail connection object into the
+      # `:lightsail_client` key in the environment.
       class ConnectLightsail
         def initialize(app, _)
           @app    = app
