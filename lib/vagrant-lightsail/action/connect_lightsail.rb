@@ -2,7 +2,7 @@ require 'aws-sdk'
 require 'log4r'
 
 module VagrantPlugins
-  module LightSail
+  module Lightsail
     module Action
       # This action connects to Lightsail, verifies credentials work,
       # and puts the Lightsail connection object into the
@@ -15,9 +15,9 @@ module VagrantPlugins
 
         def call(env)
           aws_sdk_config = {
-            aws_access_key_id: env[:machine].provider_config.access_key_id,
-            aws_secret_access_key: env[:machine].provider_config.secret_access_key,
-            aws_session_token: env[:machine].provider_config.session_token,
+            access_key_id: env[:machine].provider_config.access_key_id,
+            secret_access_key: env[:machine].provider_config.secret_access_key,
+            session_token: env[:machine].provider_config.session_token,
             region: env[:machine].provider_config.region
           }
           aws_sdk_config[:endpoint] = env[:machine].provider_config.endpoint if env[:machine].provider_config.endpoint
