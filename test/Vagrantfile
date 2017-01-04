@@ -1,0 +1,12 @@
+Vagrant.require_plugin('vagrant-lightsail')
+
+Vagrant.configure('2') do |config|
+  config.vm.synced_folder '.', '/vagrant', disabled: true
+
+  config.vm.provider :lightsail do |provider, override|
+    override.vm.box = 'lightsail'
+    override.vm.box_url = 'https://github.com/thejandroman/vagrant-lightsail/raw/master/box/lightsail.box'
+    # provider.token = ENV['DO_TOKEN']
+    provider.ssh_key_name = 'Test Key'
+  end
+end
