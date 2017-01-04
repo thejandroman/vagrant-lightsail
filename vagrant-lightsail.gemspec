@@ -9,8 +9,8 @@ Gem::Specification.new do |spec|
   spec.version     = VagrantPlugins::Lightsail::VERSION
   spec.authors     = ['Alejandro Figueroa']
   spec.email       = ['alejandro@ideasftw.com']
-  spec.summary     = 'Enables Vagrant to manage machines in EC2 and VPC.'
-  spec.description = 'Enables Vagrant to manage machines in EC2 and VPC.'
+  spec.summary     = 'Enables Vagrant to manage machines in AWS Lightsail.'
+  spec.description = 'Enables Vagrant to manage machines in AWS Lightsail.'
   spec.homepage    = 'http://github.com/thejandroman/vagrant-lightsail'
   spec.license     = 'MIT'
 
