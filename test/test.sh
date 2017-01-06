@@ -4,7 +4,7 @@
 
 cd test
 
-bundle exec vagrant up --provider=lightsail
+bundle exec vagrant up --provider=lightsail --debug
 # bundle exec vagrant up
 # bundle exec vagrant provision
 # bundle exec vagrant rebuild
