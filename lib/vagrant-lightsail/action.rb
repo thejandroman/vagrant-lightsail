@@ -129,6 +129,21 @@ module VagrantPlugins
         end
       end
 
+      # This action is called to SSH into the machine.
+      def self.action_ssh
+        Vagrant::Action::Builder.new.tap do |b|
+          b.use ConfigValidate
+          b.use Call, IsCreated do |env, b2|
+            if !env[:result]
+              b2.use MessageNotCreated
+              next
+            end
+
+            b2.use SSHExec
+          end
+        end
+      end
+
       # The autload farm
       action_root = Pathname.new(File.expand_path('../action', __FILE__))
       autoload :ConnectLightsail, action_root.join('connect_lightsail')

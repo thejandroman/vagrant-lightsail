@@ -46,7 +46,7 @@ module VagrantPlugins
         @blueprint_id      = 'ubuntu_16_04' if @blueprint_id      == UNSET_VALUE
         @bundle_id         = 'nano_1_0'     if @bundle_id         == UNSET_VALUE
         @endpoint          = nil            if @endpoint          == UNSET_VALUE
-        @keypair_name      = nil            if @keypair_name      == UNSET_VALUE
+        @keypair_name      = 'vagrant'      if @keypair_name      == UNSET_VALUE
         @region            = 'us-east-1'    if @region            == UNSET_VALUE
         @availability_zone = "#{@region}a"  if @availability_zone == UNSET_VALUE
         @session_token     = nil            if @session_token     == UNSET_VALUE
