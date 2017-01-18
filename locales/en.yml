@@ -1,0 +1,39 @@
+en:
+  vagrant_lightsail:
+    already_status: |-
+      The machine is already %{status}.
+    creating_key: |-
+      Creating new SSH key %{name}...
+    launching_instance: |-
+      Launching an instance with the following settings...
+    launch_no_keypair: |-
+      Warning! You didn't specify a keypair to launch your instance with.
+      This can sometimes result in not being able to access your instance.
+    not_created: |-
+      Instance is not created. Please run `vagrant up` first.
+    ready: |-
+      Machine is booted and ready for use!
+    starting: |-
+      Starting the instance...
+    stopping: |-
+      Stopping the instance...
+    terminating: |-
+      Terminating the instance...
+    waiting_for_ready: |-
+      Waiting for instance to become "ready"...
+    waiting_for_ssh: |-
+      Waiting for SSH to become available...
+    waiting_for_transition: |-
+      Instance is in transition state '%{state}'. Waiting for
+      transition to complete...
+    will_not_destroy: |-
+      The instance '%{name}' will not be destroyed, since the
+      confirmation was declined.
+
+    config:
+      aws_info_required: |-
+        One or more of the needed AWS credentials are missing. No
+        environment variables are set nor profile '%{profile}' exists
+        at '%{location}'
+      region_required: |-
+        A region must be specified via "region"
