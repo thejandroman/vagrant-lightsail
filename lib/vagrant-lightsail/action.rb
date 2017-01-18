@@ -130,11 +130,11 @@ module VagrantPlugins
       end
 
       # This action is called to SSH into the machine.
-      def self.action_ssh
+      def self.ssh
         Vagrant::Action::Builder.new.tap do |b|
           b.use ConfigValidate
           b.use Call, IsCreated do |env, b2|
-            if !env[:result]
+            unless env[:result]
               b2.use MessageNotCreated
               next
             end
