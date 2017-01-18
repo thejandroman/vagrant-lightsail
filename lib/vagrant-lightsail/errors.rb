@@ -10,7 +10,7 @@ module VagrantPlugins
       error_key(:lightsail_error)
     end
 
-    class PublicKeyError < DigitalOceanError
+    class PublicKeyError < VagrantLightsailError
       error_key(:public_key)
     end
   end
