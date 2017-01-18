@@ -14,11 +14,7 @@ module VagrantPlugins
         end
 
         def call(env)
-          # Initialize metrics if they haven't been
-          env[:metrics] ||= {}
-
           # Get the configs
-
           availability_zone = env[:machine].provider_config.availability_zone
           blueprint_id      = env[:machine].provider_config.blueprint_id
           bundle_id         = env[:machine].provider_config.bundle_id
@@ -53,7 +49,7 @@ module VagrantPlugins
           }
 
           begin
-            op = env[:lightsail_client].create_instances(options).operations[0]
+            env[:lightsail_client].create_instances(options).operations[0]
           rescue Aws::Lightsail::Errors => e
             raise Errors::LightailError, message: e
           end
