@@ -57,11 +57,11 @@ module VagrantPlugins
         errors = []
 
         if @aws_profile && (@access_key_id.nil? || @secret_access_key.nil? || @region.nil?)
-          errors << I18n.t('vagrant_aws.config.aws_info_required',
+          errors << I18n.t('vagrant_lightsail.config.aws_info_required',
                            profile: @aws_profile, location: @aws_dir)
         end
 
-        errors << I18n.t('vagrant_aws.config.region_required') if @region.nil?
+        errors << I18n.t('vagrant_lightsail.config.region_required') if @region.nil?
 
         { 'Lightsail Provider' => errors }
       end
