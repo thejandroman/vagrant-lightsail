@@ -12,7 +12,7 @@ EOF
 }
 
 if ! bundle exec vagrant box list | grep lightsail 1>/dev/null; then
-    bundle exec vagrant box add lightsail box/digital_ocean.box
+    bundle exec vagrant box add box/lightsail.box
 fi
 
 cd test || exit
