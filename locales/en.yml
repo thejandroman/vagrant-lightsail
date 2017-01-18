@@ -1,5 +1,27 @@
 en:
   vagrant_lightsail:
+
+    config:
+      aws_info_required: |-
+        One or more of the needed AWS credentials are missing. No
+        environment variables are set nor profile '%{profile}' exists
+        at '%{location}'
+      region_required: |-
+        A region must be specified via "region"
+
+    errors:
+      lightsail_error: |-
+        There was an error talking to AWS. The error message is shown
+        below:
+
+        %{message}
+      public_key: |-
+        There was an issue reading the public key at:
+
+        Path: %{path}
+
+        Please check the file's permissions.
+
     already_status: |-
       The machine is already %{status}.
     creating_key: |-
@@ -23,17 +45,6 @@ en:
       Waiting for instance to become "ready"...
     waiting_for_ssh: |-
       Waiting for SSH to become available...
-    waiting_for_transition: |-
-      Instance is in transition state '%{state}'. Waiting for
-      transition to complete...
     will_not_destroy: |-
       The instance '%{name}' will not be destroyed, since the
       confirmation was declined.
-
-    config:
-      aws_info_required: |-
-        One or more of the needed AWS credentials are missing. No
-        environment variables are set nor profile '%{profile}' exists
-        at '%{location}'
-      region_required: |-
-        A region must be specified via "region"
