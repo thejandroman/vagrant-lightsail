@@ -8,7 +8,7 @@ module VagrantPlugins
       class ReadSSHInfo
         def initialize(app, _)
           @app    = app
-          @logger = Log4r::Logger.new('vagrant_aws::action::read_ssh_info')
+          @logger = Log4r::Logger.new('vagrant_lightsail::action::read_ssh_info')
         end
 
         def call(env)

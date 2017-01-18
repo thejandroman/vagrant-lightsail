@@ -10,7 +10,7 @@ module VagrantPlugins
 
         def initialize(app, _)
           @app    = app
-          @logger = Log4r::Logger.new('vagrant_aws::action::run_instance')
+          @logger = Log4r::Logger.new('vagrant_lightsail::action::run_instance')
         end
 
         def call(env)
@@ -68,8 +68,7 @@ module VagrantPlugins
             raise 'not ready' unless env[:machine].communicate.ready?
           end
 
-          env[:ui].info(I18n.t('vagrant_aws.ready'))
-          env[:machine].config.ssh.username = user
+          env[:ui].info(I18n.t('vagrant_lightsail.ready'))
 
           terminate(env) if env[:interrupted]
 
