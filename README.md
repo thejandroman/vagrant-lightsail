@@ -110,6 +110,7 @@ bundle exec rake test
 ```
 - Make code changes
 - Run tests again
+- Update *README.md* and *CHANGELOG.md*
 - Create a Pull Request!
 
 ## License
