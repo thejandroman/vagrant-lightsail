@@ -1,15 +1,21 @@
 Vagrant.require_plugin('vagrant-lightsail')
 
 Vagrant.configure('2') do |config|
-  config.ssh.username         = 'ubuntu'
   config.ssh.private_key_path = '~/.ssh/id_rsa'
 
   config.vm.synced_folder '.', '/vagrant', disabled: true
 
   config.vm.provider :lightsail do |provider, override|
-    override.vm.box = 'lightsail'
-    override.vm.box_url = 'https://github.com/thejandroman/vagrant-lightsail/raw/master/box/lightsail.box'
+    override.vm.box       = 'lightsail'
+    override.vm.box_url   = 'https://github.com/thejandroman/vagrant-lightsail/raw/master/box/lightsail.box'
+    override.ssh.username = 'ubuntu'
+    provider.keypair_name = 'Test-Key'
+  end
 
-    provider.ssh_key_name = 'Test Key'
+  config.vm.provision :shell, path: 'scripts/provision.sh'
+  config.puppet_install.puppet_version = :latest
+  config.vm.provision 'puppet' do |puppet|
+    puppet.environment_path = 'puppet'
+    puppet.environment      = 'lightsail'
   end
 end

@@ -1,14 +1,33 @@
-# if ! bundle exec vagrant box list | grep digital_ocean 1>/dev/null; then
-#     bundle exec vagrant box add digital_ocean box/digital_ocean.box
-# fi
+#!/bin/bash
 
-cd test
+destroy() {
+    ANSWER=$1
+    read -r -d '' EXPECT_CMD <<EOF
+spawn bundle exec vagrant destroy
+expect {Are you sure you want to destroy}
+send "$ANSWER\r"
+interact
+EOF
+    expect -c "$EXPECT_CMD"
+}
 
-bundle exec vagrant up --provider=lightsail --debug
-# bundle exec vagrant up
-# bundle exec vagrant provision
-# bundle exec vagrant rebuild
-# bundle exec vagrant halt
-# bundle exec vagrant destroy
+if ! bundle exec vagrant box list | grep lightsail 1>/dev/null; then
+    bundle exec vagrant box add lightsail box/digital_ocean.box
+fi
 
-cd ..
+cd test || exit
+
+bundle exec vagrant up --provider=lightsail
+bundle exec vagrant up
+bundle exec vagrant provision
+bundle exec vagrant reload
+bundle exec vagrant halt
+bundle exec vagrant up
+destroy 'N'
+bundle exec vagrant destroy --force
+exit
+destroy 'N'
+destroy 'y'
+bundle exec vagrant destroy --force
+bundle exec vagrant provision
+bundle exec vagrant reload
