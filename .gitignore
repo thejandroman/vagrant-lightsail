@@ -4,7 +4,7 @@
 /_yardoc/
 /coverage/
 /doc/
-/pkg/
+*.gem
 /spec/reports/
 /tmp/
 /test/.vagrant/
