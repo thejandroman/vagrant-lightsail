@@ -38,6 +38,7 @@ module VagrantPlugins
                 if env2[:result]
                   b2.use prepare_boot
                   b2.use StartInstance # restart this instance
+                  b2.use ConfigurePorts
                 else
                   b2.use MessageAlreadyCreated # TODO: write a better message
                 end
@@ -46,6 +47,7 @@ module VagrantPlugins
               b1.use SetupKey
               b1.use prepare_boot
               b1.use RunInstance # launch a new instance
+              b1.use ConfigurePorts
             end
           end
         end
@@ -146,6 +148,7 @@ module VagrantPlugins
 
       # The autload farm
       action_root = Pathname.new(File.expand_path('../action', __FILE__))
+      autoload :ConfigurePorts, action_root.join('configure_ports')
       autoload :ConnectLightsail, action_root.join('connect_lightsail')
       autoload :IsCreated, action_root.join('is_created')
       autoload :IsStopped, action_root.join('is_stopped')

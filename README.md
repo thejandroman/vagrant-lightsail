@@ -11,6 +11,7 @@ It can:
 - Power on and off instances
 - Provision an instance
 - Setup an SSH public key for authentication
+- Open public firewall ports on instance
 
 It is based heavily
 on [vagrant-aws](https://github.com/mitchellh/vagrant-aws)
@@ -39,6 +40,7 @@ Vagrant.configure('2') do |config|
     provider.access_key_id     = 'YOUR KEY'
     provider.secret_access_key = 'YOUR SECRET KEY'
     provider.keypair_name      = 'KEYPAIR NAME'
+    provider.port_info         = [{ from_port: 443, to_port: 443, protocol: 'tcp' }]
   end
 end
 ```
@@ -86,6 +88,8 @@ The following attributes are available to configure the provider:
 - `keypair_name`
   * The name to use when creating an SSH key for
     authentication. Defaults to *vagrant*.
+- `port_info`
+  * Array of ports to open. See below.
 - `region`
   * The region to start the instance in. Defaults to *us-east-1*.
 - `secret_access_key`
@@ -94,6 +98,36 @@ The following attributes are available to configure the provider:
   * The session token provided by STS.
 - `user_data`
   * Plain text user data for the instance being booted.
+
+## Public Firewall Ports
+The plugin supports opening firewall ports via the `port_info`
+configuration parmater. Any number of port hashes can be specified in the
+array but they must contain only the following keys:
+
+- `from_port`
+  * Type: *Integer* The first port in the range. Valid Range: Minimum
+    value of 0. Maximum value of 65535.
+- `protocol`
+  * Type: *String* The protocol. Valid Values: `tcp | all | udp`
+- `to_port`
+  * Type: *Integer* The last port in the range. Valid Range: Minimum
+    value of 0. Maximum value of 65535.
+
+### Examples
+Open port `TCP:443`
+
+```
+provider.port_info = [{ from_port: 443, to_port: 443, protocol: 'tcp' }]
+```
+
+Open ports `TCP:3306` and `UDP:161`
+
+```
+provider.port_info = [
+    { from_port: 3306, to_port: 3306, protocol: 'tcp' },
+    { from_port: 161,  to_port: 161,  protocol: 'udp' },
+]
+```
 
 ## Contributing
 

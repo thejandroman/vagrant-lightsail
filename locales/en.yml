@@ -6,6 +6,8 @@ en:
         One or more of the needed AWS credentials are missing. No
         environment variables are set nor profile '%{profile}' exists
         at '%{location}'
+      port_info_array: |-
+        Port info must be an array. See plugin documentation.
       region_required: |-
         A region must be specified via "region"
 
@@ -33,6 +35,10 @@ en:
       This can sometimes result in not being able to access your instance.
     not_created: |-
       Instance is not created. Please run `vagrant up` first.
+    port_open: |-
+      Opened ports %{proto}:%{port_no_from} - %{proto}:%{port_no_to}
+    port_open_fail: |-
+      Unable to open ports %{proto}:%{port_no_from} - %{proto}:%{port_no_to}: %{error}
     ready: |-
       Machine is booted and ready for use!
     starting: |-

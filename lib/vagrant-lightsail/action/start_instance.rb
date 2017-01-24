@@ -14,12 +14,10 @@ module VagrantPlugins
         end
 
         def call(env)
-          server = env[:lightsail_client].get_instance(instance_name: env[:machine].id).instance
-
           env[:ui].info I18n.t 'vagrant_lightsail.starting'
 
           begin
-            env[:lightsail_client].start_instance(instance_name: server.name).operations[0]
+            env[:lightsail_client].start_instance(instance_name: env[:machine].id).operations[0]
           rescue Aws::Lightsail::Errors => e
             raise Errors::LightailError, message: e
           end
