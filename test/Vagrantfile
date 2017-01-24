@@ -9,7 +9,19 @@ Vagrant.configure('2') do |config|
     override.vm.box       = 'lightsail'
     override.vm.box_url   = 'https://github.com/thejandroman/vagrant-lightsail/raw/master/box/lightsail.box'
     override.ssh.username = 'ubuntu'
+
     provider.keypair_name = 'Test-Key'
+    provider.port_info    = [
+      { from_port: 22,
+        to_port: 22,
+        protocol: 'tcp' },
+      { from_port: 80,
+        to_port: 80,
+        protocol: 'udp' },
+      { from_port: 443,
+        to_port: 443,
+        protocol: 'tcp' }
+    ]
   end
 
   config.vm.provision :shell, path: 'scripts/provision.sh'

@@ -11,6 +11,7 @@ module VagrantPlugins
       attr_accessor :bundle_id
       attr_accessor :endpoint
       attr_accessor :keypair_name
+      attr_accessor :port_info
       attr_accessor :region
       attr_accessor :secret_access_key
       attr_accessor :session_token
@@ -25,6 +26,7 @@ module VagrantPlugins
         @bundle_id         = UNSET_VALUE
         @endpoint          = UNSET_VALUE
         @keypair_name      = UNSET_VALUE
+        @port_info         = [UNSET_VALUE]
         @region            = UNSET_VALUE
         @secret_access_key = UNSET_VALUE
         @session_token     = UNSET_VALUE
@@ -47,6 +49,7 @@ module VagrantPlugins
         @bundle_id         = 'nano_1_0'     if @bundle_id         == UNSET_VALUE
         @endpoint          = nil            if @endpoint          == UNSET_VALUE
         @keypair_name      = 'vagrant'      if @keypair_name      == UNSET_VALUE
+        @port_info         = []             if @port_info         == [UNSET_VALUE]
         @region            = 'us-east-1'    if @region            == UNSET_VALUE
         @availability_zone = "#{@region}a"  if @availability_zone == UNSET_VALUE
         @session_token     = nil            if @session_token     == UNSET_VALUE
@@ -60,6 +63,8 @@ module VagrantPlugins
           errors << I18n.t('vagrant_lightsail.config.aws_info_required',
                            profile: @aws_profile, location: @aws_dir)
         end
+
+        errors << I18n.t('vagrant_lightsail.config.port_info_array') unless @port_info.is_a? Array
 
         errors << I18n.t('vagrant_lightsail.config.region_required') if @region.nil?
 

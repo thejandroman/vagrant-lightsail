@@ -25,7 +25,6 @@ bundle exec vagrant halt
 bundle exec vagrant up
 destroy 'N'
 bundle exec vagrant destroy --force
-exit
 destroy 'N'
 destroy 'y'
 bundle exec vagrant destroy --force
