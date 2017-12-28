@@ -26,7 +26,7 @@ module VagrantPlugins
             return machine_not_found(machine)
           end
 
-          if [:'shutting-down', :terminated].include? server.state.name.to_sym
+          if %i[shutting-down terminated].include? server.state.name.to_sym
             return machine_not_found(machine)
           end
 

@@ -15,6 +15,6 @@ task :shell_test do
 end
 
 desc 'Run all tests: rubocop, shell_test'
-task test: [:rubocop, :shell_test]
+task test: %i[rubocop shell_test]
 
 task default: :test
