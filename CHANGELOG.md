@@ -7,6 +7,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 ## [Unreleased]
 ### Changed
 - Fixed translation information for vagrant states
+- Updated rubocop dependency to address [CVE-2017-8418](https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2017-8418)
 
 ## [0.2.0] - 2017-01-24
 ### Added
