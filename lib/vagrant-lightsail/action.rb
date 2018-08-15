@@ -147,7 +147,7 @@ module VagrantPlugins
       end
 
       # The autload farm
-      action_root = Pathname.new(File.expand_path('../action', __FILE__))
+      action_root = Pathname.new(File.expand_path('action', __dir__))
       autoload :ConfigurePorts, action_root.join('configure_ports')
       autoload :ConnectLightsail, action_root.join('connect_lightsail')
       autoload :IsCreated, action_root.join('is_created')

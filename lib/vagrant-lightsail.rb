@@ -7,7 +7,7 @@ module VagrantPlugins
     #
     # @return [Pathname]
     def self.source_root
-      @source_root ||= Pathname.new(File.expand_path('../../', __FILE__))
+      @source_root ||= Pathname.new(File.expand_path('..', __dir__))
     end
   end
 end
