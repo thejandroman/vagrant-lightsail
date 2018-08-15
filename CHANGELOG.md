@@ -6,6 +6,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 
 ## [Unreleased]
 ### Changed
+- Fix testing framework and update test gems
 - Fixed translation information for vagrant states
 - Updated rubocop dependency to address [CVE-2017-8418](https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2017-8418)
 
