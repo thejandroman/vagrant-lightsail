@@ -27,3 +27,6 @@ Style/Documentation:
 
 Style/FrozenStringLiteralComment:
   Enabled: false
+
+Naming/UncommunicativeMethodParamName:
+  Enabled: false
