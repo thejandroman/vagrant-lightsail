@@ -1,7 +1,5 @@
 # Lightsail Vagrant Provider
 
-[![Gem Version](https://badge.fury.io/rb/vagrant-lightsail.svg)](https://badge.fury.io/rb/vagrant-lightsail)
-
 `vagrant-lightsail` is a [Vagrant](https://www.vagrantup.com/) 1.2+
 plugin that support managing [Lightsail](https://amazonlightsail.com/)
 instances.
