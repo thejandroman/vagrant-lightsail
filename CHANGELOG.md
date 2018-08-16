@@ -5,6 +5,8 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/)
 and this project adheres to [Semantic Versioning](http://semver.org/).
 
 ## [Unreleased]
+
+## [0.3.0] - 2018-08-15
 ### Changed
 - Fix testing framework and update test gems
 - Fixed translation information for vagrant states
